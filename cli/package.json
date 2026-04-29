@@ -1,0 +1,60 @@
+{
+  "name": "skillforge",
+  "version": "0.1.0",
+  "description": "Compile scattered company knowledge — Slack, Notion, GitHub, post-mortems — into Claude Agent Skills (SKILL.md). The company brain for AI agents.",
+  "type": "module",
+  "bin": {
+    "skillforge": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup src/cli.ts src/index.ts --format esm --dts --clean --minify",
+    "dev": "tsx src/cli.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "anthropic",
+    "agent-skills",
+    "skill-md",
+    "knowledge-base",
+    "company-brain",
+    "ai-agents",
+    "extraction",
+    "rag"
+  ],
+  "author": "Ahmed Tariq <ahmedtariqcs@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://skillforge.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahmedtariqcs/skillforge.git",
+    "directory": "cli"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.91.1",
+    "commander": "^12.1.0",
+    "kleur": "^4.1.5"
+  },
+  "devDependencies": {
+    "tsup": "^8.4.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=18.17"
+  }
+}

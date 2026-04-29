@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+node_modules/
 /.pnp
 .pnp.*
 .yarn/*
@@ -14,11 +14,15 @@
 /coverage
 
 # next.js
-/.next/
+.next/
 /out/
 
 # production
 /build
+
+# CLI build artifacts (committed dist/ for the published package, but build/ scratch is ignored)
+/cli/.tsup
+/cli/coverage
 
 # misc
 .DS_Store
