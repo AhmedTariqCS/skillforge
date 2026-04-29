@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://skillforge-nine-mu.vercel.app/sitemap.xml",
+    sitemap: "https://skillforge-provibecodes-projects.vercel.app/sitemap.xml",
   };
 }
