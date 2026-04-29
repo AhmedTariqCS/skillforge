@@ -154,7 +154,7 @@ console.log(result.skill.body);
 
 ## What's the hosted product?
 
-This CLI is the open-source compiler. The hosted product at [skillforge.vercel.app](https://skillforge.vercel.app) connects directly to Slack, Notion, Drive, GitHub, Intercom, and Linear; runs the compiler continuously across all your sources; tracks supersession and conflicts across versions; and provides review workflows for cross-functional ownership. Same primitive, hosted plumbing.
+This CLI is the open-source compiler. The hosted product at [skillforge-nine-mu.vercel.app](https://skillforge-nine-mu.vercel.app) connects directly to Slack, Notion, Drive, GitHub, Intercom, and Linear; runs the compiler continuously across all your sources; tracks supersession and conflicts across versions; and provides review workflows for cross-functional ownership. Same primitive, hosted plumbing.
 
 ## License
 
@@ -162,7 +162,7 @@ MIT. Built by Ahmed Tariq for Y Combinator Summer 2026 against Tom Blomfield's "
 
 ## Links
 
-- Hosted demo: [skillforge.vercel.app/demo](https://skillforge.vercel.app/demo)
-- Live extraction: [skillforge.vercel.app/forge](https://skillforge.vercel.app/forge)
-- About: [skillforge.vercel.app/about](https://skillforge.vercel.app/about)
+- Hosted demo: [skillforge-nine-mu.vercel.app/demo](https://skillforge-nine-mu.vercel.app/demo)
+- Live extraction: [skillforge-nine-mu.vercel.app/forge](https://skillforge-nine-mu.vercel.app/forge)
+- About: [skillforge-nine-mu.vercel.app/about](https://skillforge-nine-mu.vercel.app/about)
 - Issues / PRs: GitHub repo
