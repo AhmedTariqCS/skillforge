@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Skillforge
 
-## Getting Started
+The company brain for AI agents. Built for Y Combinator Summer 2026 against Tom Blomfield's "Company Brain" RFS.
 
-First, run the development server:
+**Live demo:** https://skillforge.vercel.app/demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## What it does
+
+Skillforge connects to a company's Slack, Notion, Drive, GitHub, Intercom, and Linear; extracts structured facts with provenance; and synthesizes them into executable skills in Claude's [Agent Skills format](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview).
+
+The output is a folder of versioned `SKILL.md` files an AI agent can pick up and run — turning generic agents into ones that know your refund matrix, your discount ladder, your incident runbook.
+
+## What's in this repo
+
+```
+src/
+├── app/
+│   ├── page.tsx          # landing
+│   ├── demo/             # live side-by-side agent demo
+│   ├── skills/           # skill library + detail pages
+│   ├── sources/          # connected sources + doc detail pages
+│   ├── manifesto/        # vision page
+│   └── api/              # streaming agent + skills + sources endpoints
+├── components/           # UI primitives + demo client
+└── lib/
+    ├── agent.ts          # with-brain vs without-brain runner
+    ├── claude.ts         # Anthropic SDK wrapper
+    ├── db/               # Drizzle schema + Neon client
+    └── seed/             # Northwind demo dataset (19 docs, 18 facts, 7 skills)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Run locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+cp .env.example .env.local
+# Set ANTHROPIC_API_KEY in .env.local
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open http://localhost:3000.
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
+See `../application/deployment_guide.md` for the step-by-step.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Short version: push to GitHub, import to Vercel, set `ANTHROPIC_API_KEY` env var, deploy.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Stack
 
-## Deploy on Vercel
+- Next.js 16 (App Router)
+- Tailwind CSS v4
+- Anthropic SDK (Claude Sonnet 4.6 for the agent, Haiku 4.5 for triage)
+- Drizzle ORM + Neon Postgres + pgvector (optional — waitlist + future live extraction)
+- Vercel (frontend + serverless)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All rights reserved (for now). The Northwind demo dataset is fictional and licensed as CC-BY for educational use.
