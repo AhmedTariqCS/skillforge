@@ -1,0 +1,9 @@
+{
+  "type": "slack",
+  "title": "#engineering — deploy freeze announcement",
+  "author": "Priya Shah",
+  "authorRole": "Head of Operations",
+  "updatedAt": "2026-04-24T23:33:00Z",
+  "domain": "deploys",
+  "difficulty": "medium"
+}

@@ -1,0 +1,247 @@
+{
+  "runAt": "2026-04-29T18:52:13.850Z",
+  "models": {
+    "extract": "claude-haiku-4-5-20251001",
+    "synthesize": "claude-opus-4-7",
+    "grade": "claude-opus-4-7"
+  },
+  "cases": [
+    {
+      "caseId": "01-deploy-freeze",
+      "domain": "deploys",
+      "difficulty": "medium",
+      "inputType": "slack",
+      "inputChars": 1235,
+      "skillName": "handling-billing-migration-deploy-freeze",
+      "faithfulness": 5,
+      "executability": 5,
+      "format": 4,
+      "conciseness": 4,
+      "total": 18,
+      "grade": "A",
+      "notes": {
+        "faithfulness": "All claims trace to the source: Monday 9am-Tuesday 5pm PT window, Priya/Ravi as approvers, staging allowed, risk-mitigation flips OK, no lift assumption without announcement.",
+        "executability": "The decision table, classification workflow, and concrete examples let an agent confidently route any production change without further lookup.",
+        "format": "Frontmatter parses and name is gerund-style, but contains time-sensitive references like 'Monday 9am PT' which violate the no-time-sensitive-language guideline for skills meant to be reusable.",
+        "conciseness": "Tight overall, though the Examples section and Workflow steps have some overlap with the decision table that could be trimmed."
+      },
+      "costUsd": 0.0867898,
+      "durationMs": 32168
+    },
+    {
+      "caseId": "02-cache-incident",
+      "domain": "incident-response",
+      "difficulty": "hard",
+      "inputType": "github",
+      "inputChars": 2075,
+      "skillName": "responding-to-search-service-stale-cache-outages",
+      "faithfulness": 5,
+      "executability": 5,
+      "format": 5,
+      "conciseness": 4,
+      "total": 19,
+      "grade": "A",
+      "notes": {
+        "faithfulness": "All claims trace to the post-mortem (47 min SEV2, ~15% queries, 98% vs 78%, 1-hour expiry, SSH flush, etc.) with no invented facts.",
+        "executability": "Provides concrete decision criteria (hit-rate thresholds, ordered flush procedures, checklists) sufficient for an on-call engineer to act.",
+        "format": "Frontmatter parses, name is gerund and hyphenated, description is third-person and well under 1024 chars, no XML or time-sensitive language.",
+        "conciseness": "Tight overall, though the background section and runbook authoring checklist slightly overlap with hard rules and could be trimmed."
+      },
+      "costUsd": 0.1067168,
+      "durationMs": 43047
+    },
+    {
+      "caseId": "03-usage-pricing",
+      "domain": "pricing",
+      "difficulty": "medium",
+      "inputType": "notion",
+      "inputChars": 2060,
+      "skillName": "handling-usage-based-pricing-exceptions",
+      "faithfulness": 5,
+      "executability": 5,
+      "format": 5,
+      "conciseness": 4,
+      "total": 19,
+      "grade": "A",
+      "notes": {
+        "faithfulness": "All claims map to the source: ACV bands, $10k/month floor with Lumeo/Trellix references, three artifacts, forbidden combinations, and UBE-2026 template are all accurate.",
+        "executability": "Workflow steps, decision table, and worked examples give an agent concrete decision points (e.g., '$60k ACV, $8k/month cap, no prepay' → auto-reject) without needing external lookups.",
+        "format": "Frontmatter parses, name is gerund-form lowercase-hyphens, description is third-person and within length covering what+when, no XML/time-sensitive language, well under 500 lines.",
+        "conciseness": "Tight overall, though the 'Forbidden combinations' table partly duplicates the 'Hard rules' section and the 'Background context' section could be folded into the cap rule."
+      },
+      "costUsd": 0.10413120000000001,
+      "durationMs": 34632
+    },
+    {
+      "caseId": "04-refund-policy",
+      "domain": "refunds",
+      "difficulty": "easy",
+      "inputType": "notion",
+      "inputChars": 1300,
+      "skillName": "handling-customer-refund-requests",
+      "faithfulness": 5,
+      "executability": 5,
+      "format": 5,
+      "conciseness": 4,
+      "total": 19,
+      "grade": "A",
+      "notes": {
+        "faithfulness": "All claims trace to the source: authority tiers, plan/window matrix, RFND-2026 template, Stripe-or-NetSuite exclusivity, and v2-supersession are all faithfully represented.",
+        "executability": "The workflow gives precise decision points (approver by amount, method by payment type, classification rules) plus worked examples that let an agent act without further lookup.",
+        "format": "Frontmatter parses, name is gerund-style and within limits, description is third-person and well under 1024 chars, no XML or time-sensitive language, and body is well under 500 lines.",
+        "conciseness": "Tight overall, though the worked examples and communication guardrails sections have some redundancy with the workflow and hard rules."
+      },
+      "costUsd": 0.1015728,
+      "durationMs": 40554
+    },
+    {
+      "caseId": "05-press-policy",
+      "domain": "comms",
+      "difficulty": "easy",
+      "inputType": "slack",
+      "inputChars": 555,
+      "skillName": "handling-press-and-analyst-inquiries",
+      "faithfulness": 4,
+      "executability": 5,
+      "format": 4,
+      "conciseness": 3,
+      "total": 16,
+      "grade": "B",
+      "notes": {
+        "faithfulness": "Core rules (forward to Priya + ceo@northwind.com, includes LinkedIn DMs and analysts) are accurate; minor inferred additions like Gartner, screenshots, and the forwarding template extend beyond source but are reasonable.",
+        "executability": "The workflow, classification table, and template give the agent everything needed to act decisively in nearly any inquiry scenario.",
+        "format": "Frontmatter parses and name is gerund; description is ~590 chars and well-formed, though the H1 'Handling press and analyst inquiries' uses sentence case rather than title case (minor).",
+        "conciseness": "Useful structure but contains redundancy — the classification table, examples, 'what to include,' and template all partially restate the same forwarding instructions."
+      },
+      "costUsd": 0.08748919999999999,
+      "durationMs": 38563
+    },
+    {
+      "caseId": "06-vendor-procurement",
+      "domain": "procurement",
+      "difficulty": "easy",
+      "inputType": "notion",
+      "inputChars": 827,
+      "skillName": "handling-software-procurement",
+      "faithfulness": 5,
+      "executability": 5,
+      "format": 5,
+      "conciseness": 4,
+      "total": 19,
+      "grade": "A",
+      "notes": {
+        "faithfulness": "All claims trace to the source (SOC 2, DPA by Erik Lindqvist, Okta SSO, residency, 90-day Vanta alerts, $10k procurement review); examples are reasonable inference from the cost table.",
+        "executability": "The workflow, checklist, and approver examples make routing and signing decisions actionable without external lookup.",
+        "format": "Frontmatter parses, name is gerund-style and within limits, description is third-person with what+when and under 1024 chars, no XML or time-sensitive language.",
+        "conciseness": "Tight overall, though the quick-reference checklist partially duplicates the workflow and required-artifacts sections."
+      },
+      "costUsd": 0.084351,
+      "durationMs": 31717
+    },
+    {
+      "caseId": "07-hiring-loop",
+      "domain": "hiring",
+      "difficulty": "easy",
+      "inputType": "slack",
+      "inputChars": 816,
+      "skillName": "running-engineering-hiring-loop",
+      "faithfulness": 5,
+      "executability": 5,
+      "format": 5,
+      "conciseness": 4,
+      "total": 19,
+      "grade": "A",
+      "notes": {
+        "faithfulness": "All claims trace to source: stages, durations, $200 senior+ payment, 4-hour cap, 14-day SLA, 48-hour decision, no-skip take-home rule, and Notion location are all accurate.",
+        "executability": "Provides precise decisions including an exception-handling script and concrete pacing targets (2-3 days, 5 days) that let an agent act confidently.",
+        "format": "Frontmatter parses, name is gerund-style and short, description is third-person and well under 1024 chars, no XML or time-sensitive language, uses forward slashes.",
+        "conciseness": "Tight overall, though the timeline enforcement pacing suggestions and the worked example are mild expansions beyond the source."
+      },
+      "costUsd": 0.0816644,
+      "durationMs": 30759
+    },
+    {
+      "caseId": "08-pricing-discount",
+      "domain": "pricing",
+      "difficulty": "medium",
+      "inputType": "notion",
+      "inputChars": 1449,
+      "skillName": "handling-sales-discount-exceptions",
+      "faithfulness": 4,
+      "executability": 5,
+      "format": 4,
+      "conciseness": 4,
+      "total": 17,
+      "grade": "A",
+      "notes": {
+        "faithfulness": "Mostly accurate, but invents that 'Maya cannot approve sub-40% on her own' and that CFO must be routed before Maya — the source only says CFO sign-off is needed, not that Maya is bypassed.",
+        "executability": "Includes worked examples, a decision checklist, and precise thresholds enabling confident agent action.",
+        "format": "Frontmatter parses and name is gerund, but description is ~700+ chars and dense; otherwise compliant with no XML or time-sensitive language.",
+        "conciseness": "Tight overall, though the anti-patterns section and checklist slightly overlap with hard rules."
+      },
+      "costUsd": 0.0947666,
+      "durationMs": 36833
+    },
+    {
+      "caseId": "09-routing-migration",
+      "domain": "support",
+      "difficulty": "hard",
+      "inputType": "github",
+      "inputChars": 771,
+      "skillName": "migrating-tenants-to-routing-engine-v2",
+      "faithfulness": 5,
+      "executability": 5,
+      "format": 5,
+      "conciseness": 4,
+      "total": 19,
+      "grade": "A",
+      "notes": {
+        "faithfulness": "All claims trace to the source: flag name, defaults, migration tool path, ship date, Lumen Labs redesign, and v1/v2 capability differences are accurately represented.",
+        "executability": "Provides concrete commands, flag values, decision criteria, and a step-by-step workflow plus checklist that an agent can follow end-to-end.",
+        "format": "Frontmatter parses cleanly, name is gerund and within limits, description is third-person with what+when, no XML or time-sensitive language issues.",
+        "conciseness": "Tight overall, though the capabilities table, feature-flag section, and quick checklist have some overlap with the workflow and hard rules."
+      },
+      "costUsd": 0.08503100000000001,
+      "durationMs": 31639
+    },
+    {
+      "caseId": "10-data-retention",
+      "domain": "compliance",
+      "difficulty": "hard",
+      "inputType": "notion",
+      "inputChars": 1874,
+      "skillName": "handling-customer-data-retention-requests",
+      "faithfulness": 5,
+      "executability": 5,
+      "format": 5,
+      "conciseness": 4,
+      "total": 19,
+      "grade": "A",
+      "notes": {
+        "faithfulness": "All claims trace to source: 90-day backups, 7-year audit logs, DPA controls, 50 GB threshold, and the deprecated legacy rule is correctly flagged.",
+        "executability": "Workflows give concrete steps with owners, timelines, and decision points (e.g., escalate to Erik on MSA citation), enabling confident action.",
+        "format": "Frontmatter parses, name is gerund-style and lowercase-hyphenated, description is third-person with what+when, no XML or time-sensitive language.",
+        "conciseness": "Tight overall, though the separate 'Timeline reference' subsection partly duplicates the workflow steps and could be trimmed."
+      },
+      "costUsd": 0.0907374,
+      "durationMs": 30642
+    }
+  ],
+  "aggregate": {
+    "n": 10,
+    "meanTotal": 18.4,
+    "meanByAxis": {
+      "faithfulness": 4.8,
+      "executability": 5,
+      "format": 4.7,
+      "conciseness": 3.9
+    },
+    "grades": {
+      "A": 9,
+      "B": 1,
+      "C": 0,
+      "D": 0
+    },
+    "totalCostUsd": 0.923
+  }
+}

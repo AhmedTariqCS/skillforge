@@ -1,0 +1,9 @@
+{
+  "type": "github",
+  "title": "PM-2026-03-22: Search service stale-cache outage",
+  "author": "David Park",
+  "authorRole": "Staff SRE",
+  "updatedAt": "2026-03-25T14:00:00Z",
+  "domain": "incident-response",
+  "difficulty": "hard"
+}
