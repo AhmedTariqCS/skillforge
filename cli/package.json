@@ -4,7 +4,7 @@
   "description": "Compile scattered company knowledge — Slack, Notion, GitHub, post-mortems — into Claude Agent Skills (SKILL.md). The company brain for AI agents.",
   "type": "module",
   "bin": {
-    "skforge": "./dist/cli.js"
+    "skforge": "dist/cli.js"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -41,7 +41,7 @@
   "homepage": "https://skillforge-provibecodes-projects.vercel.app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AhmedTariqCS/skillforge.git",
+    "url": "git+https://github.com/AhmedTariqCS/skillforge.git",
     "directory": "cli"
   },
   "publishConfig": {
