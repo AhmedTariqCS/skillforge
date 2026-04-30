@@ -19,12 +19,23 @@ const WITH_BRAIN_SYSTEM_BASE = `You are an AI assistant deployed at Northwind, a
 
 The skills below were selected for this query because their descriptions matched. Each skill is a self-contained playbook with policies, decisions, examples, and guardrails. Use them as the source of truth.
 
-Rules:
-1. Cite the specific skill, document, and (when available) the date. Format: "[skill: handling-refund-requests]" or "[doc: notion-refund-policy-v3, 2026-04-08]".
-2. If a skill explicitly says "do not do X" — follow it. Hard rules are hard.
-3. If two facts conflict, prefer the more recent one and flag the conflict.
-4. If the question is outside the loaded skills, say so plainly. Don't invent policy.
-5. Be concrete and actionable. Reference Salesforce templates, Slack channels, and people by name where the skill provides them.
+CITATION RULES (these are mandatory, not optional):
+
+1. **Inline-cite the skill** the first time you reference it: \`[skill: <skill-name>]\`.
+2. **Inline-cite the source document** every time you reference a specific policy, decision, post-mortem, or named precedent: \`[doc: <doc-id>]\`. Use the EXACT IDs from the "AVAILABLE SOURCE DOCS" list below — never invent or paraphrase IDs.
+3. **Citations are inline, not footnotes.** Place the bracket directly after the claim it supports.
+4. **Cite at least 2 source docs in any non-trivial response.** If you reference a hard rule, name the post-mortem doc that codified it. If you reference a precedent, cite the ticket or thread.
+
+WORKED EXAMPLE (this is the format we want):
+
+> Per Refund Policy v3 [doc: notion-refund-policy-v3], Enterprise customers more than 90 days in receive pro-rated credit, max 6 months. The most recent comparable case is TICK-4488 [doc: intercom-ticket-4488] — Lumen Labs received \$48k in service credit. Following [skill: handling-refund-requests], you should clear approval with VP CS before responding.
+
+OPERATIONAL RULES:
+
+5. If a skill explicitly says "do not do X" — follow it. Hard rules are hard.
+6. If two facts conflict, prefer the more recent one and flag the conflict.
+7. If the question is outside the loaded skills, say so plainly. Don't invent policy.
+8. Be concrete and actionable. Reference Salesforce templates, Slack channels, and people by name where the skill provides them.
 
 `;
 
@@ -36,6 +47,31 @@ LAST UPDATED: ${skill.lastUpdatedAt}
 
 ${skill.body}
 =====================================`;
+}
+
+// Build a compact catalog of source doc IDs the agent is allowed to cite.
+// We pull only the docs backing the loaded skills so the agent doesn't
+// reach for IDs unrelated to the current query.
+function formatSourceCatalog(selected: AgentSkill[]): string {
+  const factIds = new Set(selected.flatMap((s) => s.factIds));
+  // Lazy import to avoid a circular dep at module init.
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const { NORTHWIND_FACTS } = require("./seed/facts") as typeof import("./seed/facts");
+  const docIds = new Set<string>();
+  for (const fact of NORTHWIND_FACTS) {
+    if (factIds.has(fact.id)) {
+      for (const ev of fact.evidence) docIds.add(ev.docId);
+    }
+  }
+  const docs = NORTHWIND_DOCS.filter((d) => docIds.has(d.id));
+  if (docs.length === 0) {
+    return "AVAILABLE SOURCE DOCS:\n  (no docs were directly indexed for the loaded skills — answer using the skill body alone, no [doc: ...] citations)";
+  }
+  const lines = docs.map(
+    (d) =>
+      `  - ${d.id} — ${d.title} (${d.source}; ${d.author}${d.authorRole ? `, ${d.authorRole}` : ""})`
+  );
+  return `AVAILABLE SOURCE DOCS (use these EXACT IDs in [doc: ...] citations):\n${lines.join("\n")}`;
 }
 
 export async function runWithoutBrain(prompt: string): Promise<AgentResponse> {
@@ -89,9 +125,11 @@ export async function runWithBrain(
     }
   }
 
-  // 2. Build the system prompt with skill bodies inlined
+  // 2. Build the system prompt with skill bodies + source catalog inlined
   const skillContext = selected.map(formatSkillForContext).join("\n\n");
-  const system = WITH_BRAIN_SYSTEM_BASE + "\n\n" + skillContext;
+  const sourceCatalog = formatSourceCatalog(selected);
+  const system =
+    WITH_BRAIN_SYSTEM_BASE + "\n" + sourceCatalog + "\n\n" + skillContext;
 
   // 3. Run the agent
   const res = await client.messages.create({
@@ -188,7 +226,9 @@ export async function* streamWithBrain(
   }
 
   const skillContext = selected.map(formatSkillForContext).join("\n\n");
-  const system = WITH_BRAIN_SYSTEM_BASE + "\n\n" + skillContext;
+  const sourceCatalog = formatSourceCatalog(selected);
+  const system =
+    WITH_BRAIN_SYSTEM_BASE + "\n" + sourceCatalog + "\n\n" + skillContext;
 
   let fullText = "";
   let inputTokens = 0;
