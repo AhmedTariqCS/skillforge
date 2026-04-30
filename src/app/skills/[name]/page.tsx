@@ -70,7 +70,10 @@ export default async function SkillPage({
                 <Clock className="size-3 mr-1" />
                 updated {formatRelativeTime(skill.lastUpdatedAt)}
               </Badge>
-              <Badge variant="muted">{skill.factIds.length} facts</Badge>
+              <Badge variant="muted">
+                {skill.factIds.length}{" "}
+                {skill.factIds.length === 1 ? "fact" : "facts"}
+              </Badge>
               <Badge variant="muted">
                 {sourceDocs.length} source{sourceDocs.length === 1 ? "" : "s"}
               </Badge>
@@ -124,7 +127,8 @@ export default async function SkillPage({
                       {fact.statement}
                     </p>
                     <p className="text-[10px] text-muted-foreground mt-1.5">
-                      {fact.evidence.length} sources ·{" "}
+                      {fact.evidence.length}{" "}
+                      {fact.evidence.length === 1 ? "source" : "sources"} ·{" "}
                       {Math.round(fact.evidence[0]?.confidence * 100)}% confidence
                     </p>
                   </div>

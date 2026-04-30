@@ -81,7 +81,10 @@ export default function SkillsPage() {
                   {formatRelativeTime(skill.lastUpdatedAt)}
                 </span>
                 <span>·</span>
-                <span>{skill.factIds.length} facts</span>
+                <span>
+                  {skill.factIds.length}{" "}
+                  {skill.factIds.length === 1 ? "fact" : "facts"}
+                </span>
                 <span>·</span>
                 <span>{Math.round(skill.body.length / 100) / 10}KB</span>
               </div>
