@@ -1,10 +1,10 @@
 {
-  "name": "skillforge",
+  "name": "@skillforge/cli",
   "version": "0.1.0",
   "description": "Compile scattered company knowledge — Slack, Notion, GitHub, post-mortems — into Claude Agent Skills (SKILL.md). The company brain for AI agents.",
   "type": "module",
   "bin": {
-    "skillforge": "./dist/cli.js"
+    "skforge": "./dist/cli.js"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -41,8 +41,11 @@
   "homepage": "https://skillforge-provibecodes-projects.vercel.app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ahmedtariqcs/skillforge.git",
+    "url": "https://github.com/AhmedTariqCS/skillforge.git",
     "directory": "cli"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.91.1",

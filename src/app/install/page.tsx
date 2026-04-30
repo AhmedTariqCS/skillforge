@@ -40,7 +40,7 @@ export default function InstallPage() {
           >
             <CodeBlock
               language="bash"
-              code={`npx skillforge extract slack-thread.txt`}
+              code={`npx @skillforge/cli extract slack-thread.txt`}
             />
           </Card>
           <Card
@@ -50,7 +50,7 @@ export default function InstallPage() {
           >
             <CodeBlock
               language="bash"
-              code={`npm install -g skillforge
+              code={`npm install -g @skillforge/cli
 skillforge extract slack-thread.txt`}
             />
           </Card>

@@ -14,9 +14,9 @@ import {
 const program = new Command();
 
 program
-  .name("skillforge")
+  .name("skforge")
   .description(
-    "Compile scattered company knowledge into Claude Agent Skills (SKILL.md files)."
+    "Compile scattered company knowledge into Claude Agent Skills (SKILL.md files). Published as @skillforge/cli on npm."
   )
   .version(VERSION);
 
