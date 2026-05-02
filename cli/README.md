@@ -5,7 +5,7 @@
 The company brain for AI agents, as a CLI.
 
 ```
-$ npx @skillforge/cli extract slack-thread.txt
+$ npx @ahmedtariq/skillforge extract slack-thread.txt
 ✦ Extracting facts…
   · [constraint] Deploy freezes apply to prod, not staging. (95%)
   · [constraint] Feature flag flips on net-new features count as deploys. (92%)
@@ -33,13 +33,13 @@ Skillforge takes a Slack thread, a Notion page, a post-mortem — anything with 
 Run instantly with `npx`:
 
 ```bash
-npx @skillforge/cli extract <file>
+npx @ahmedtariq/skillforge extract <file>
 ```
 
 Or install globally:
 
 ```bash
-npm install -g @skillforge/cli
+npm install -g @ahmedtariq/skillforge
 skillforge extract <file>
 ```
 

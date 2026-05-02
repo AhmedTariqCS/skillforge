@@ -16,7 +16,7 @@ const program = new Command();
 program
   .name("skforge")
   .description(
-    "Compile scattered company knowledge into Claude Agent Skills (SKILL.md files). Published as @skillforge/cli on npm."
+    "Compile scattered company knowledge into Claude Agent Skills (SKILL.md files). Published as @ahmedtariq/skillforge on npm."
   )
   .version(VERSION);
 
