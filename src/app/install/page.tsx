@@ -40,7 +40,7 @@ export default function InstallPage() {
           >
             <CodeBlock
               language="bash"
-              code={`npx @ahmedtariq/skillforge extract slack-thread.txt`}
+              code={`npx @skforge/cli extract slack-thread.txt`}
             />
           </Card>
           <Card
@@ -50,8 +50,8 @@ export default function InstallPage() {
           >
             <CodeBlock
               language="bash"
-              code={`npm install -g @ahmedtariq/skillforge
-skillforge extract slack-thread.txt`}
+              code={`npm install -g @skforge/cli
+skforge extract slack-thread.txt`}
             />
           </Card>
         </div>
@@ -79,20 +79,20 @@ skillforge extract slack-thread.txt`}
           <Subhead>Extract a single file → SKILL.md to stdout</Subhead>
           <CodeBlock
             language="bash"
-            code={`skillforge extract path/to/notion-doc.md`}
+            code={`skforge extract path/to/notion-doc.md`}
           />
 
           <Subhead>Write directly to your Claude Code skills folder</Subhead>
           <CodeBlock
             language="bash"
-            code={`skillforge extract slack-thread.txt -d ~/.claude/skills
+            code={`skforge extract slack-thread.txt -d ~/.claude/skills
 # Creates ~/.claude/skills/<skill-name>/SKILL.md`}
           />
 
           <Subhead>Batch a directory</Subhead>
           <CodeBlock
             language="bash"
-            code={`skillforge batch ./company-docs -o ./skills --ext .md,.txt`}
+            code={`skforge batch ./company-docs -o ./skills --ext .md,.txt`}
           />
           <p className="text-sm text-muted-foreground">
             Walks the input directory, extracts a skill from each file,
@@ -102,15 +102,15 @@ skillforge extract slack-thread.txt`}
           <Subhead>Pipe from stdin</Subhead>
           <CodeBlock
             language="bash"
-            code={`pbpaste | skillforge extract -
+            code={`pbpaste | skforge extract -
 # Or:
-cat slack-export.txt | skillforge extract - --hint "A Slack thread"`}
+cat slack-export.txt | skforge extract - --hint "A Slack thread"`}
           />
 
           <Subhead>Inspect before paying for it</Subhead>
           <CodeBlock
             language="bash"
-            code={`skillforge describe my-doc.md
+            code={`skforge describe my-doc.md
 # ✦ Input report:
 #   Chars:    1,820
 #   Words:    312
@@ -125,7 +125,7 @@ cat slack-export.txt | skillforge extract - --hint "A Slack thread"`}
           </p>
           <CodeBlock
             language="typescript"
-            code={`import { forge } from "skillforge";
+            code={`import { forge } from "@skforge/cli";
 
 const result = await forge(text, {
   apiKey: process.env.ANTHROPIC_API_KEY,

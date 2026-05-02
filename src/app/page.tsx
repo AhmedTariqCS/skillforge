@@ -322,7 +322,7 @@ export default function LandingPage() {
                   <p>
                     <span className="text-muted-foreground">$ </span>
                     <span className="text-foreground">
-                      npx @ahmedtariq/skillforge extract slack-thread.txt
+                      npx @skforge/cli extract slack-thread.txt
                     </span>
                   </p>
                   <p className="text-emerald-400 mt-2">

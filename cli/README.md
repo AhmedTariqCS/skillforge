@@ -5,7 +5,7 @@
 The company brain for AI agents, as a CLI.
 
 ```
-$ npx @ahmedtariq/skillforge extract slack-thread.txt
+$ npx @skforge/cli extract slack-thread.txt
 ✦ Extracting facts…
   · [constraint] Deploy freezes apply to prod, not staging. (95%)
   · [constraint] Feature flag flips on net-new features count as deploys. (92%)
@@ -33,14 +33,14 @@ Skillforge takes a Slack thread, a Notion page, a post-mortem — anything with 
 Run instantly with `npx`:
 
 ```bash
-npx @ahmedtariq/skillforge extract <file>
+npx @skforge/cli extract <file>
 ```
 
 Or install globally:
 
 ```bash
-npm install -g @ahmedtariq/skillforge
-skillforge extract <file>
+npm install -g @skforge/cli
+skforge extract <file>
 ```
 
 You'll need an `ANTHROPIC_API_KEY`:
@@ -56,20 +56,20 @@ Get a key at [console.anthropic.com](https://console.anthropic.com). A typical e
 ### Single file → SKILL.md to stdout
 
 ```bash
-skillforge extract path/to/notion-doc.md
+skforge extract path/to/notion-doc.md
 ```
 
 ### To a Claude Code skills folder
 
 ```bash
-skillforge extract slack-thread.txt -d ~/.claude/skills
+skforge extract slack-thread.txt -d ~/.claude/skills
 # Creates ~/.claude/skills/<skill-name>/SKILL.md
 ```
 
 ### Batch a directory
 
 ```bash
-skillforge batch ./company-docs -o ./skills --ext .md,.txt
+skforge batch ./company-docs -o ./skills --ext .md,.txt
 ```
 
 Walks the input directory, extracts a skill from each file, writes them all to `./skills/<skill-name>/SKILL.md`.
@@ -77,7 +77,7 @@ Walks the input directory, extracts a skill from each file, writes them all to `
 ### Hint the extractor
 
 ```bash
-skillforge extract incident.md --hint "A SEV2 incident post-mortem"
+skforge extract incident.md --hint "A SEV2 incident post-mortem"
 ```
 
 Hints help the model orient. They're optional — the extractor figures it out without one most of the time.
@@ -85,20 +85,20 @@ Hints help the model orient. They're optional — the extractor figures it out w
 ### Just the facts
 
 ```bash
-skillforge extract policy.md --facts-only
+skforge extract policy.md --facts-only
 # Outputs JSON: { topic, facts: [{ type, statement, confidence, ... }] }
 ```
 
 ### Pipe from stdin
 
 ```bash
-cat slack-thread.txt | skillforge extract -
+cat slack-thread.txt | skforge extract -
 ```
 
 ### Inspect an input before paying for it
 
 ```bash
-skillforge describe my-doc.md
+skforge describe my-doc.md
 # Prints char/word/line counts and an estimated cost
 ```
 
@@ -131,12 +131,12 @@ skillforge describe my-doc.md
 
 ## Cost
 
-A typical single-file extraction uses ~1.5K tokens of Haiku input, ~200 tokens of Haiku output, ~1K tokens of Opus input, and ~1.5K tokens of Opus output. **About $0.12 per skill.** Run `skillforge describe` for a more precise estimate before spending.
+A typical single-file extraction uses ~1.5K tokens of Haiku input, ~200 tokens of Haiku output, ~1K tokens of Opus input, and ~1.5K tokens of Opus output. **About $0.12 per skill.** Run `skforge describe` for a more precise estimate before spending.
 
 ## Programmatic API
 
 ```typescript
-import { forge } from "skillforge";
+import { forge } from "@skforge/cli";
 
 const result = await forge(text, {
   apiKey: process.env.ANTHROPIC_API_KEY,
@@ -158,7 +158,7 @@ This CLI is the open-source compiler. The hosted product at [skillforge-provibec
 
 ## License
 
-MIT. Built by Ahmed Tariq for Y Combinator Summer 2026 against Tom Blomfield's "Company Brain" RFS.
+MIT. Built for Y Combinator Summer 2026 against Tom Blomfield's "Company Brain" RFS.
 
 ## Links
 

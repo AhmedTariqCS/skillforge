@@ -1,6 +1,6 @@
 {
-  "name": "@ahmedtariq/skillforge",
-  "version": "0.1.1",
+  "name": "@skforge/cli",
+  "version": "0.1.0",
   "description": "Compile scattered company knowledge — Slack, Notion, GitHub, post-mortems — into Claude Agent Skills (SKILL.md). The company brain for AI agents.",
   "type": "module",
   "bin": {
