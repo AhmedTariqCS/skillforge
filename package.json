@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "eslint",
     "eval": "tsx evals/run.ts",
-    "eval:case": "tsx evals/run.ts --case"
+    "eval:case": "tsx evals/run.ts --case",
+    "waitlist": "tsx scripts/check-waitlist.ts",
+    "waitlist:csv": "tsx scripts/check-waitlist.ts --csv",
+    "waitlist:since": "tsx scripts/check-waitlist.ts --since"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.91.1",
