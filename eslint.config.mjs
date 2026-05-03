@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Compiled CLI bundle (minified, intentionally not human-readable)
+    "cli/dist/**",
   ]),
 ]);
 
