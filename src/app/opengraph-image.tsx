@@ -113,7 +113,7 @@ export default async function OG() {
             Y Combinator S26
           </span>
           <span>·</span>
-          <span>skillforge-provibecodes-projects.vercel.app</span>
+          <span>skforge.dev</span>
         </div>
       </div>
     ),

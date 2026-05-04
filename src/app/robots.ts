@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://skillforge-provibecodes-projects.vercel.app/sitemap.xml",
+    sitemap: "https://skforge.dev/sitemap.xml",
   };
 }

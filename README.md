@@ -2,7 +2,7 @@
 
 The company brain for AI agents. Built for Y Combinator Summer 2026 against Tom Blomfield's "Company Brain" RFS.
 
-**Live demo:** https://skillforge-provibecodes-projects.vercel.app/demo
+**Live demo:** https://skforge.dev/demo
 
 ## What it does
 

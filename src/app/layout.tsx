@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "Skillforge — The Company Brain for AI Agents",
   description:
     "Skillforge turns your scattered company knowledge — Slack, Notion, Drive, GitHub — into executable skills that AI agents can actually run. Stop pasting context. Start shipping agents.",
-  metadataBase: new URL("https://skillforge-provibecodes-projects.vercel.app"),
+  metadataBase: new URL("https://skforge.dev"),
   openGraph: {
     title: "Skillforge — The Company Brain for AI Agents",
     description:

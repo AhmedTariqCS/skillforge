@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { NORTHWIND_SKILLS } from "@/lib/seed/skills";
 import { NORTHWIND_DOCS } from "@/lib/seed/northwind";
 
-const BASE = "https://skillforge-provibecodes-projects.vercel.app";
+const BASE = "https://skforge.dev";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

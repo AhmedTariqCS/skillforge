@@ -154,7 +154,7 @@ console.log(result.skill.body);
 
 ## What's the hosted product?
 
-This CLI is the open-source compiler. The hosted product at [skillforge-provibecodes-projects.vercel.app](https://skillforge-provibecodes-projects.vercel.app) connects directly to Slack, Notion, Drive, GitHub, Intercom, and Linear; runs the compiler continuously across all your sources; tracks supersession and conflicts across versions; and provides review workflows for cross-functional ownership. Same primitive, hosted plumbing.
+This CLI is the open-source compiler. The hosted product at [skforge.dev](https://skforge.dev) connects directly to Slack, Notion, Drive, GitHub, Intercom, and Linear; runs the compiler continuously across all your sources; tracks supersession and conflicts across versions; and provides review workflows for cross-functional ownership. Same primitive, hosted plumbing.
 
 ## License
 
@@ -162,7 +162,7 @@ MIT. Built for Y Combinator Summer 2026 against Tom Blomfield's "Company Brain" 
 
 ## Links
 
-- Hosted demo: [skillforge-provibecodes-projects.vercel.app/demo](https://skillforge-provibecodes-projects.vercel.app/demo)
-- Live extraction: [skillforge-provibecodes-projects.vercel.app/forge](https://skillforge-provibecodes-projects.vercel.app/forge)
-- About: [skillforge-provibecodes-projects.vercel.app/about](https://skillforge-provibecodes-projects.vercel.app/about)
+- Hosted demo: [skforge.dev/demo](https://skforge.dev/demo)
+- Live extraction: [skforge.dev/forge](https://skforge.dev/forge)
+- About: [skforge.dev/about](https://skforge.dev/about)
 - Issues / PRs: GitHub repo
