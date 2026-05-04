@@ -115,7 +115,7 @@ export default async function ResearchPage() {
           </p>
           <CodeBlock
             language="bash"
-            code={`git clone https://github.com/ahmedtariqcs/skillforge
+            code={`git clone https://github.com/AhmedTariqCS/skillforge
 cd skillforge
 npm install
 export ANTHROPIC_API_KEY=sk-ant-...

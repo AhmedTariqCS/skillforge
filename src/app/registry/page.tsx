@@ -55,7 +55,7 @@ export default function RegistryPage() {
         <div className="flex flex-wrap gap-3 mb-12">
           <Button asChild>
             <a
-              href="https://github.com/ahmedtariqcs/skillforge/tree/main/registry"
+              href="https://github.com/AhmedTariqCS/skillforge/tree/main/registry"
               target="_blank"
               rel="noreferrer"
             >
@@ -128,7 +128,7 @@ export default function RegistryPage() {
               </p>
               <Button asChild variant="outline">
                 <a
-                  href="https://github.com/ahmedtariqcs/skillforge/tree/main/registry"
+                  href="https://github.com/AhmedTariqCS/skillforge/tree/main/registry"
                   target="_blank"
                   rel="noreferrer"
                 >

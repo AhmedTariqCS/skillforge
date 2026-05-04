@@ -195,7 +195,7 @@ console.log(result.skill.body);`}
             </Button>
             <Button asChild variant="outline">
               <a
-                href="https://github.com/ahmedtariqcs/skillforge"
+                href="https://github.com/AhmedTariqCS/skillforge"
                 target="_blank"
                 rel="noreferrer"
               >
